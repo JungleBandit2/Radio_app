@@ -1,0 +1,278 @@
+import subprocess
+import csv
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QScrollArea, QFrame, QToolButton, QGridLayout, QSizePolicy, QStackedLayout, QLabel, QMessageBox
+from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtCore import Qt, QSize
+import sys, os
+import socket
+
+
+# Check for internet
+def check_internet_connection(host="1.1.1.1", port=53, timeout=3):
+    try:
+        socket.setdefaulttimeout(timeout)
+        socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((host, port))
+        return True
+    except socket.error:
+        return False
+
+ffplay_process = None
+
+# Parse CSV file for radio stations
+def parse_csv_file(csv_path):
+    stations = []
+    
+    with open(csv_path, "r", encoding="windows-1252") as csvfile:
+        reader = csv.DictReader(csvfile)
+
+        for row in reader:
+            name = row.get("Station", "Unknown")
+            image_filename = row.get("Image", "")
+            stream_url = row.get("Stream URL", "")
+            
+            if stream_url:
+                stations.append({
+                    "name": name,
+                    "image_filename": image_filename,
+                    "stream_url": stream_url
+                })
+            else:
+                print(f"Skipping station '{name}' because stream URL is missing.")
+    
+    return stations
+
+def stop_ffplay():
+    global ffplay_process
+    if ffplay_process and ffplay_process.poll() is None:
+        ffplay_process.terminate()
+
+def stop_and_return():
+    stop_ffplay()
+    frame_layout.setCurrentWidget(scroll_area)
+
+# Start the locally installed VLC instance
+def launch_radio(station):
+    global ffplay_process
+    if not check_internet_connection():
+        QMessageBox.critical(None, "No Internet", "You must be connected to the internet.")
+        return
+    station_name_label.setText(station["name"])
+    image_filename = station.get("image_filename")
+    image_filename = station.get("image_filename")
+    image_path = os.path.join(script_dir, "files", "station_icons", image_filename)
+
+    if os.path.exists(image_path):
+        pixmap = QPixmap(image_path).scaled(120, 120, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        station_icon_label.setPixmap(pixmap)
+    else:
+        station_icon_label.clear()
+
+
+    pixmap = QPixmap(image_path).scaled(120, 120, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+    station_icon_label.setPixmap(pixmap)
+
+    frame_layout.setCurrentWidget(now_playing)
+    stream_url = station["stream_url"]
+    title = station["name"]
+
+    ffplay_path = os.path.join(script_dir, "ffplay", "ffplay.exe")
+    command = [
+        ffplay_path,
+        "-nodisp",
+        "-autoexit",
+        stream_url
+    ]
+
+    print(f"Starting ffplay for station '{title}' with URL '{stream_url}'")
+    try:
+        ffplay_process = subprocess.Popen(
+            command,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            creationflags=subprocess.CREATE_NO_WINDOW
+        )
+    except Exception as e:
+        print(f"Failed to launch ffplay: {e}")
+
+
+
+# Set variables for the script
+try:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    script_dir = os.getcwd()
+icon_path = os.path.join(script_dir, "files", "icon.svg")
+csv_file = os.path.join(script_dir, "files", "Radio Stations.csv")
+stations = parse_csv_file(csv_file)
+
+
+# Initialise Qt window
+app = QApplication(sys.argv)
+
+
+window = QMainWindow()
+window.setWindowTitle("Radio Player")
+window.setFixedSize(620, 400)
+window.setStyleSheet("background-color: #3b3b3b;")
+window.setWindowIcon(QIcon(icon_path))
+
+# Initialise Qt frame
+frame = QWidget()
+frame.setStyleSheet("background-color: #3b3b3b;")
+frame_layout = QStackedLayout()
+frame_layout.setContentsMargins(0, 0, 0, 0)
+frame.setLayout(frame_layout)
+
+# Initialise Now Playing screen
+now_playing = QWidget()
+now_playing_layout = QVBoxLayout()
+now_playing.setLayout(now_playing_layout)
+
+# Add the station icon
+station_icon_label = QLabel()
+station_icon_label.setAlignment(Qt.AlignCenter)
+
+
+# Add the station label
+station_name_label = QLabel()
+station_name_label.setAlignment(Qt.AlignCenter)
+station_name_label.setStyleSheet("""
+    QLabel {
+        color: #fefefe;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+""")
+
+# Add the Stop button
+stop_button = QToolButton()
+stop_button.setFixedSize(120, 120)
+stop_icon = QIcon(QPixmap(os.path.join(script_dir, "files", "stop.svg")))
+stop_button.setIcon(stop_icon)
+stop_button.setIconSize(QSize(100, 100))
+stop_button.setStyleSheet("""
+        QToolButton {
+            background-color: #3b3b3b;
+            color: #fefefe;
+            padding: 10px;
+            border-radius: 12px;
+        }
+        QToolButton:hover {
+            background-color: #444;
+        }
+    """)
+stop_button.clicked.connect(lambda: stop_and_return())
+
+# Add widgets to Now Playing screen
+now_playing_layout.addWidget(station_icon_label)
+now_playing_layout.addWidget(station_name_label)
+now_playing_layout.addWidget(stop_button, alignment=Qt.AlignCenter)
+now_playing_layout.insertStretch(0)
+now_playing_layout.addStretch()
+
+# Initialise scrolling and scrollbar styling
+scroll_area = QScrollArea()
+scroll_area.setWidgetResizable(True)
+scroll_area.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+app.setStyle("Fusion")
+scroll_area.setStyleSheet("""
+    QScrollBar:vertical {
+        background: #3b3b3b;
+        width: 12px;
+        margin: 0px; /* No space reserved for arrows */
+    }
+
+    QScrollBar::handle:vertical {
+        background: #888;
+        min-height: 20px;
+        border-radius: 6px;
+    }
+
+    QScrollBar::add-line:vertical,
+    QScrollBar::sub-line:vertical,
+    QScrollBar::up-arrow:vertical,
+    QScrollBar::down-arrow:vertical {
+        height: 0;
+        width: 0;
+        background: none;
+        border: none;
+    }
+""")
+
+# Set the area to scroll in
+scrollable_frame = QFrame()
+scrollable_frame.setStyleSheet("background-color: #3b3b3b;")
+scroll_area.setWidget(scrollable_frame)
+scrollable_frame.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
+
+# Add the scroll area widget to the ui
+frame_layout.addWidget(scroll_area)
+frame_layout.addWidget(now_playing)
+
+
+# Set grid to render buttons
+button_size = 150
+grid_layout = QGridLayout()
+scrollable_frame.setLayout(grid_layout)
+
+
+buttons = []
+# Set the button icons and labels to CSV data
+for i, station in enumerate(stations):
+
+    image_filename = station.get("image_filename")
+
+    # Check whether the image referenced in CSV file exists or whether to use placeholder
+    if image_filename:
+        image_path = os.path.join(script_dir, "files", "station_icons", image_filename)
+
+        if not os.path.exists(image_path):
+            print(f"Image file '{image_filename}' not found for station '{station["name"]}' - using placeholder")
+            image_path = os.path.join(script_dir, "files", "placeholder.svg")
+
+    else:
+        print(f"Image filename missing for station '{station["name"]}' - using placeholder")
+        image_path = os.path.join(script_dir, "files", "placeholder.svg")
+
+    # Scale the image to the correct size (150x150 pixels)
+    pixmap = QPixmap(image_path)
+    scaled_pixmap = pixmap.scaled(button_size, button_size, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+
+    # Set the button icon, size and style for each station
+    button = QToolButton()
+    button.setIcon(QIcon(scaled_pixmap))
+    button.setIconSize(scaled_pixmap.size())
+    button.setText(station["name"])
+    button.setToolButtonStyle(Qt.ToolButtonTextUnderIcon)
+    button.setStyleSheet("""
+        QToolButton {
+            background-color: #3b3b3b;
+            color: #fefefe;
+            padding: 10px;
+            border-radius: 12px;
+        }
+        QToolButton:hover {
+            background-color: #444;
+        }
+    """)
+    button.setFixedSize(button_size + 20, button_size + 40)
+    button.clicked.connect(lambda checked, st=station: launch_radio(st))
+
+    # Set button grid size
+    row = i // 3
+    column = i % 3
+    grid_layout.addWidget(button, row, column, Qt.AlignCenter)
+    buttons.append(button)
+    
+print(buttons)
+# Run the Qt window
+window.setCentralWidget(frame)
+window.show()
+app.aboutToQuit.connect(stop_ffplay)
+
+try:
+    sys.exit(app.exec_())
+finally:
+    stop_ffplay()

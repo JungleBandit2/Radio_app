@@ -1,0 +1,76 @@
+Station,Image,Stream URL
+BBC Radio 1,bbc_radio_one.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_one.mpd
+BBC Radio 1 Anthems,bbc_radio_one_anthems.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_one_anthems.mpd
+BBC Radio 1 Dance,bbc_radio_one_dance.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_one_dance.mpd
+BBC Radio 1Xtra,bbc_1xtra.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_1xtra.mpd
+BBC Radio 2,bbc_radio_two.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_two.mpd
+BBC Radio 3,bbc_radio_three.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_three.mpd
+BBC Radio 3 Unwind,bbc_radio_three_unwind.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_three_unwind.mpd
+BBC Radio 4,bbc_radio_fourfm.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_fourfm.mpd
+BBC Radio 4 Extra,bbc_radio_four_extra.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_four_extra.mpd
+BBC Radio 5 Live,bbc_radio_five_live.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_five_live.mpd
+BBC Radio 5 Sports Extra,bbc_radio_five_sports_extra.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_five_live_sports_extra.mpd
+BBC Radio 5 Sports Extra 2,bbc_radio_five_sports_extra_2.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_five_sports_extra_2.mpd
+BBC Radio 5 Sports Extra 3,bbc_radio_five_sports_extra_3.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_five_sports_extra_3.mpd
+BBC Radio 6 Music,bbc_6music.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_6music.mpd
+BBC Asian Network,bbc_asian_network.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_asian_network.mpd
+BBC World Service,bbc_world_service.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_world_service.mpd
+BBC Sounds News,bbc_sounds_news.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_sounds_news.mpd
+BBC Radio Scotland,bbc_radio_scotland_fm.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_scotland_fm.mpd
+BBC Radio Scotland Extra,bbc_radio_scotland_mw.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_scotland_mw.mpd
+BBC Radio Orkney,bbc_radio_orkney.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_orkney.mpd
+BBC Radio Shetland,bbc_radio_shetland.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_shetland.mpd
+BBC Radio Nan Gàidheal,bbc_radio_nan_gaidheal.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_nan_gaidheal.mpd
+BBC Radio Ulster,bbc_radio_ulster.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_ulster.mpd
+BBC Radio Foyle,bbc_radio_foyle.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_foyle.mpd
+BBC Radio Wales,bbc_radio_wales_fm.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_wales_fm.mpd
+BBC Radio Wales Extra,bbc_radio_wales_am.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_wales_am.mpd
+BBC Radio Cymru,bbc_radio_cymru.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_cymru.mpd
+BBC Radio Cymru 2,bbc_radio_cymru_2.png,https://a.files.bbci.co.uk/ms6/live/3441A116-B12E-4D2F-ACA8-C1984642FA4B/audio/simulcast/dash/uk/pc_hd_abr_v2/aks/bbc_radio_cymru_2.mpd
+1 LIVE,1live_logo.png,https://wdr-1live-live.icecastssl.wdr.de/wdr/1live/live/mp3/128/stream.mp3
+1 LIVE DIGGI,1livediggi_logo.png,https://wdr-1live-diggi.icecastssl.wdr.de/wdr/1live/diggi/mp3/128/stream.mp3
+WDR 2,wdr2_logo.png,https://wdr-wdr2-ruhrgebiet.icecastssl.wdr.de/wdr/wdr2/ruhrgebiet/mp3/128/stream.mp3
+WDR 3,wdr3_logo.png,https://wdr-wdr3-live.icecastssl.wdr.de/wdr/wdr3/live/mp3/128/stream.mp3
+WDR 4,wdr4_logo.png,https://wdr-wdr4-live.icecastssl.wdr.de/wdr/wdr4/live/mp3/128/stream.mp3
+WDR 5,wdr5_logo.png,https://wdr-wdr5-live.icecastssl.wdr.de/wdr/wdr5/live/mp3/128/stream.mp3
+WDR COSMO,cosmo_logo.png,https://wdr-cosmo-live.icecastssl.wdr.de/wdr/cosmo/live/mp3/128/stream.mp3
+Die Maus,diemaus_logo.png,https://wdr-diemaus-live.icecastssl.wdr.de/wdr/diemaus/live/mp3/128/stream.mp3
+Heart UK,heart.png,https://media-ssl.musicradio.com/HeartUKMP3
+Heart 70s,heart70s.png,https://media-ssl.musicradio.com/Heart70sMP3
+Heart 80s,heart80s.png,https://media-ssl.musicradio.com/Heart80sMP3
+Heart 90s,heart90s.png,https://media-ssl.musicradio.com/Heart90sMP3
+Heart 00s,heart00s.png,https://media-ssl.musicradio.com/Heart00sMP3
+Heart 10s,heart10s.png,https://media-ssl.musicradio.com/Heart10sMP3
+Heart Dance,heartdance.png,https://media-ssl.musicradio.com/HeartDanceMP3
+Heart Musicals,heartmusicals.png,https://media-ssl.musicradio.com/HeartMusicalsMP3
+Heart Love,heartlove.png,https://media-ssl.musicradio.com/HeartLoveMP3
+Heart Scotland,heartscotland.png,https://media-ssl.musicradio.com/HeartGlasgowMP3
+Heart Xmas,heartxmas.png,https://media-ssl.musicradio.com/HeartXmasMP3
+Smooth UK,smooth.png,https://media-ssl.musicradio.com/SmoothUKMP3
+Smooth Relax,smoothrelax.png,https://media-ssl.musicradio.com/SmoothRelaxMP3
+Smooth Chill,smoothchill.png,https://media-ssl.musicradio.com/SmoothChillMP3
+Smooth Country,smoothcountry.png,https://media-ssl.musicradio.com/SmoothCountryMP3
+Smooth Soul,smoothsoul.png,https://media-ssl.musicradio.com/SmoothSoulMP3
+Smooth 70s,smooth70s.png,https://media-ssl.musicradio.com/Smooth70sMP3
+Smooth 80s,smooth80s.png,https://media-ssl.musicradio.com/Smooth80sMP3
+Smooth Christmas,smoothchristmas.png,https://media-ssl.musicradio.com/SmoothXmasMP3
+Radio X UK,radiox.png,https://media-ssl.musicradio.com/RadioXUKMP3
+Radio X 90s,radiox90s.png,https://media-ssl.musicradio.com/RadioX90sMP3
+Radio X 00s,radiox00s.png,https://media-ssl.musicradio.com/RadioX00sMP3
+Radio X Chilled,radioxchilled.png,https://media-ssl.musicradio.com/RadioXChilledMP3
+Radio X Classic Rock,radioxclassicrock.png,https://media-ssl.musicradio.com/RadioXClassicRockMP3
+Gold UK,gold.png,https://media-ssl.musicradio.com/GoldMP3
+Classic FM,classicfm.png,https://media-ssl.musicradio.com/ClassicFMMP3
+Classic FM Movies,classicfmmovies.png,https://media-ssl.musicradio.com/ClassicFMMoviesMP3
+Classic FM Calm,classicfmcalm.png,https://media-ssl.musicradio.com/ClassicFMCalmMP3
+LBC News,lbcnews.png,https://media-ssl.musicradio.com/LBCNewsUKMP3
+LBC UK,lbc.png,https://media-ssl.musicradio.com/LBCUKMP3
+Capital UK,capital.png,https://media-ssl.musicradio.com/CapitalUKMP3
+Capital Anthems,capitalanthems.png,https://media-ssl.musicradio.com/CapitalAnthemsMP3
+Capital XTRA,capitalxtra.png,https://media-ssl.musicradio.com/CapitalXTRANationalMP3
+Capital XTRA Reloaded,capitalxtrareloaded.png,https://media-ssl.musicradio.com/CapitalXTRAReloadedMP3
+Capital Dance,capitaldance.png,https://media-ssl.musicradio.com/CapitalDanceMP3
+Capital Chill,capitalchill.png,https://media-ssl.musicradio.com/CapitalChillMP3
+Capital Scotland,capitalscotland.png,https://media-ssl.musicradio.com/CapitalGlasgowMP3
+talkSport,talksport.png,http://radio.talksport.com/stream
+talkSport 2,talksport2.png,http://radio.talksport.com/stream2
