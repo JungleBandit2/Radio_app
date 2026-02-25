@@ -1,3 +1,3 @@
 pyinstaller --onedir --icon=icon.ico --noconsole --add-data "files;files" --add-data "ffplay;ffplay" radio.py
 
-Delete 'build' and 'dist' folders before running
+Delete 'build' and 'dist' folders and radio.spec before running
