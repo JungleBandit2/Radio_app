@@ -5,10 +5,11 @@ from PyQt6.QtWidgets import (
     QFrame, QToolButton, QGridLayout, QSizePolicy, QStackedLayout,
     QLabel, QMessageBox
 )
-from PyQt6.QtGui import QIcon, QPixmap
+from PyQt6.QtGui import QIcon, QPixmap, QPainter
 from PyQt6.QtCore import Qt, QSize
 import sys, os
 import socket
+import platform
 
 
 # Check for internet
@@ -66,12 +67,25 @@ def load_station_pixmap(image_filename, size):
     if not image_filename or not os.path.exists(image_path):
         image_path = os.path.join(script_dir, "files", "placeholder.svg")
 
-    pixmap = QPixmap(image_path)
-    return pixmap.scaled(
+    # Load and scale while keeping aspect ratio
+    pixmap = QPixmap(image_path).scaled(
         size, size,
         Qt.AspectRatioMode.KeepAspectRatio,
         Qt.TransformationMode.SmoothTransformation
     )
+
+    # Create a square canvas
+    square = QPixmap(size, size)
+    square.fill(Qt.GlobalColor.transparent)
+
+    # Center the pixmap inside the square
+    painter = QPainter(square)
+    x = (size - pixmap.width()) // 2
+    y = (size - pixmap.height()) // 2
+    painter.drawPixmap(x, y, pixmap)
+    painter.end()
+
+    return square
 
 
 # Start the locally installed ffplay instance
@@ -91,7 +105,15 @@ def start_ffplay(station):
     stream_url = station["stream_url"]
     title = station["name"]
 
-    ffplay_path = os.path.join(script_dir, "ffplay", "ffplay.exe")
+    system = platform.system().lower()
+
+    if system == "windows":
+        ffplay_path = os.path.join(script_dir, "ffplay", "ffplay.exe")
+        creation = subprocess.CREATE_NO_WINDOW
+    else:
+        ffplay_path = os.path.join(script_dir, "ffplay", "ffplay")
+        creation = 0  # no flags on Linux/Mac
+
     command = [
         ffplay_path,
         "-nodisp",
@@ -106,9 +128,8 @@ def start_ffplay(station):
             stdin=subprocess.PIPE,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-            creationflags=subprocess.CREATE_NO_WINDOW
+            creationflags=creation
         )
-
 
     except Exception as e:
         print(f"Failed to launch ffplay: {e}")
